@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  firebaseAPIKey: 'AIzaSyDb0xTaRAoxyCgvaDF3kk5VYOsTwB_3o7Y'
+  firebaseAPIKey: 'AIzaSyDImuydURhpDuchv1jl2OyJbO1fA0ZVqpo',
+  databaseURL: 'https://ng-recipe-book-b24bc-default-rtdb.asia-southeast1.firebasedatabase.app/'
 };
 
 /*
