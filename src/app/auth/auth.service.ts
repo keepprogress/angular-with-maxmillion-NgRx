@@ -32,15 +32,7 @@ export class AuthService {
   ) {}
 
   signup(email: string, password: string) {
-    return this.http
-      .post<AuthResponseData>(
-        'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=' + environment.firebaseAPIKey,
-        {
-          email: email,
-          password: password,
-          returnSecureToken: true
-        }
-      )
+
       .pipe(
         catchError(this.handleError),
         tap(resData => {
