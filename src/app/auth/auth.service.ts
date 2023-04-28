@@ -59,8 +59,8 @@ export class AuthService {
       .post<AuthResponseData>(
         'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=' + environment.firebaseAPIKey,
         {
-          email: email,
-          password: password,
+          email,
+          password,
           returnSecureToken: true
         }
       )
@@ -142,10 +142,10 @@ export class AuthService {
       expirationDate
     );
     this.store.dispatch(new AuthActions.Login({
-      email: email,
-      userId: userId,
-      token: token,
-      expirationDate: expirationDate
+      email,
+      userId,
+      token,
+      expirationDate
     }));
     this.autoLogout(expiresIn * 1000);
     // localStorage.setItem('userData', JSON.stringify(user));
