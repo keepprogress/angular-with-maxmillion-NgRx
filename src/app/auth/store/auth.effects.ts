@@ -2,12 +2,22 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as AuthActions from './auth.actions';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-import { AuthResponseData, AuthService } from '../auth.service';
+import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
-import { of, throwError } from 'rxjs';
+import { of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../user.model';
+
+export interface AuthResponseData {
+  kind: string;
+  idToken: string;
+  email: string;
+  refreshToken: string;
+  expiresIn: string;
+  localId: string;
+  registered?: boolean;
+}
 
 const handleAuthentication = (expiresIn: number, email: string, userId: string, token: string) => {
   const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
